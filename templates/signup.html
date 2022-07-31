@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}SignUp{% endblock title %}
+{% block main-content %}
+
+    <main class="contact-page">
+        <div class="container">
+            <h1 class="oleez-page-title wow fadeInUp">SignUp</h1>
+            <div class="row">
+                <div class="col-md-6 pl-lg-5 wow fadeInRight">
+                    <form method="post" action="/signup" class="oleez-contact-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="oleez-input" id="username" name="username" required>
+                            <label for="fullName">Username</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="oleez-input" id="useremail" name="useremail" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="oleez-input" id="fname" name="fname" required>
+                            <label for="fullName">First Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="oleez-input" id="lname" name="lname" required>
+                            <label for="fullName">Last Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="oleez-input" id="pass1" name="pass1" required>
+                            <label for="fullName">Password</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="oleez-input" id="pass2" name="pass2" required>
+                            <label for="fullName">Confirm Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock main-content %}

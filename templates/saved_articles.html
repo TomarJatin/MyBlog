@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Saved Articles{% endblock title %}
+{% block main-content %}
+<h1>Saved Articles</h1>
+{% if posts | length < 1 %}
+<h3> You don't have any Saved Article! </h3>
+{% endif %}
+<main class="blog-grid-page">
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4">
+                <div class="blog-post-card wow fadeInUp">
+                    <div class="blog-post-thumbnail-wrapper">
+                        <img src="/media/{{post.thumbnail}}" alt="blog">
+                    </div>
+                    <p class="blog-post-date">{{post.upload_to}}</p>
+                    <a href="{% url 'post_detail' post.slug %}"><h5 class="blog-post-title">{{post.title}}</h5></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12 pb-5 mb-5">
+                    <nav class="oleez-pagination d-flex align-items-center justify-content-center wow fadeInUp">
+                        <a href="#!" class="active">01</a>
+                        <a href="#!">02</a>
+                        <a href="#!">03</a>
+                        <a href="#!" class="next">&rarr;</a>
+                    </nav>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main-content %}
